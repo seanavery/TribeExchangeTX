@@ -1,0 +1,19 @@
+{
+  "name": "tribe_exchange_tx",
+  "version": "1.0.0",
+  "description": "lightweight double auction for Ethereum based tokens",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Ethereum",
+    "React.js",
+    "Javascript"
+  ],
+  "author": "Sean Avery",
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^1.13.2"
+  }
+}
