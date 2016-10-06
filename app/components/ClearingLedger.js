@@ -1,8 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
-import Submit from './Submit'
 
-class AuctionLedger extends React.Component {
+class ClearingLedger extends React.Component {
   render () {
     return (
       <div>
@@ -14,4 +13,4 @@ class AuctionLedger extends React.Component {
   }
 }
 
-module.exports = AuctionLedger
+module.exports = ClearingLedger
