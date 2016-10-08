@@ -1,7 +1,7 @@
 import React from 'react'
 import {render} from 'react-dom'
 
-class Submit extends React.Component {
+class Bid extends React.Component {
   render () {
     return (
       <div>
@@ -12,4 +12,4 @@ class Submit extends React.Component {
   }
 }
 
-module.exports = Submit
+module.exports = Bid
