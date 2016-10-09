@@ -10,13 +10,17 @@ var config = {
     path: BUILD_DIR,
     filename: 'bundle.js'
   },
+  node: {
+    fs: "empty"
+  },
   module : {
-   loaders : [
+  loaders : [
      {
        test : /\.jsx?/,
        include : APP_DIR,
        loader : 'babel'
-     }
+     },
+     { test: /\.json$/, loader: 'json' },
    ]
   }
 };

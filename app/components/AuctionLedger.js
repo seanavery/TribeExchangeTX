@@ -2,6 +2,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import Bid from './Bid'
 import AuctionForm from './AuctionForm'
+import BidList from './BidList'
 
 class AuctionLedger extends React.Component {
   render () {
