@@ -61,7 +61,7 @@
 	
 	var _AuctionLedger2 = _interopRequireDefault(_AuctionLedger);
 	
-	var _ClearingLedger = __webpack_require__(/*! ./components/ClearingLedger */ 176);
+	var _ClearingLedger = __webpack_require__(/*! ./components/ClearingLedger */ 178);
 	
 	var _ClearingLedger2 = _interopRequireDefault(_ClearingLedger);
 	
@@ -22144,13 +22144,25 @@
 	      this.setState({ value: event.target.value });
 	    }
 	  }, {
+	    key: 'handleSubmit',
+	    value: function handleSubmit(event) {
+	      var price = this.state.price;
+	      var amount = this.state.amount;
+	      console.log('Submitting: ' + price + '  ' + amount);
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement('input', {
-	        type: 'text',
-	        value: this.state.value,
-	        onChange: this.handleChange
-	      });
+	      return _react2.default.createElement(
+	        'form',
+	        { onSubmit: this.handleSubmi },
+	        _react2.default.createElement('input', {
+	          type: 'text',
+	          value: this.state.value,
+	          onChange: this.handleChange
+	        }),
+	        _react2.default.createElement('input', { type: 'submit', value: 'Post' })
+	      );
 	    }
 	  }]);
 	
@@ -22170,7 +22182,7 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _fs = __webpack_require__(/*! fs */ 177);
+	var _fs = __webpack_require__(/*! fs */ 176);
 	
 	var _fs2 = _interopRequireDefault(_fs);
 	
@@ -22180,7 +22192,7 @@
 	
 	var _reactDom = __webpack_require__(/*! react-dom */ 34);
 	
-	var _BidData = __webpack_require__(/*! json!../data/BidData.json */ 178);
+	var _BidData = __webpack_require__(/*! json!../data/BidData.json */ 177);
 	
 	var _BidData2 = _interopRequireDefault(_BidData);
 	
@@ -22243,6 +22255,40 @@
 
 /***/ },
 /* 176 */
+/*!*******************************************!*\
+  !*** ./~/node-libs-browser/mock/empty.js ***!
+  \*******************************************/
+/***/ function(module, exports) {
+
+
+
+/***/ },
+/* 177 */
+/*!***********************************************!*\
+  !*** ./~/json-loader!./app/data/BidData.json ***!
+  \***********************************************/
+/***/ function(module, exports) {
+
+	module.exports = [
+		{
+			"price": "$10",
+			"amount": "4",
+			"id": 1
+		},
+		{
+			"price": "$12",
+			"contractAddress": "2",
+			"id": 2
+		},
+		{
+			"price": "$15",
+			"amount": "5",
+			"id": 3
+		}
+	];
+
+/***/ },
+/* 178 */
 /*!******************************************!*\
   !*** ./app/components/ClearingLedger.js ***!
   \******************************************/
@@ -22294,40 +22340,6 @@
 	}(_react2.default.Component);
 	
 	module.exports = ClearingLedger;
-
-/***/ },
-/* 177 */
-/*!*******************************************!*\
-  !*** ./~/node-libs-browser/mock/empty.js ***!
-  \*******************************************/
-/***/ function(module, exports) {
-
-
-
-/***/ },
-/* 178 */
-/*!***********************************************!*\
-  !*** ./~/json-loader!./app/data/BidData.json ***!
-  \***********************************************/
-/***/ function(module, exports) {
-
-	module.exports = [
-		{
-			"price": "$10",
-			"amount": "4",
-			"id": 1
-		},
-		{
-			"price": "$12",
-			"contractAddress": "2",
-			"id": 2
-		},
-		{
-			"price": "$15",
-			"amount": "5",
-			"id": 3
-		}
-	];
 
 /***/ }
 /******/ ]);

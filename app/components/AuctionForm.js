@@ -11,13 +11,21 @@ class AuctionForm extends React.Component {
   handleChange(event) {
     this.setState({value: event.target.value})
   }
+  handleSubmit(event) {
+    var price = this.state.price;
+    var amount = this.state.amount;
+    console.log('Submitting: ' + price + '  ' + amount)
+  }
   render () {
     return (
-      <input
-        type="text"
-        value={this.state.value}
-        onChange={this.handleChange}
-      />
+      <form onSubmit={this.handleSubmi}>
+        <input
+          type="text"
+          value={this.state.value}
+          onChange={this.handleChange}
+        />
+        <input type="submit" value="Post" />
+      </form>
     )
   }
 }
