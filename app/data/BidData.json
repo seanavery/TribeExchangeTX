@@ -1,3 +1,17 @@
-{
-  "hello" : "hello"
-}
+[
+  {
+     "price" : "$10",
+     "amount" : "4",
+     "id": 1
+  },
+  {
+     "price" : "$12",
+     "contractAddress" : "2",
+     "id": 2
+  },
+  {
+     "price" : "$15",
+     "amount" : "5",
+     "id": 3
+  }
+]

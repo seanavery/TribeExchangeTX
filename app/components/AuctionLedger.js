@@ -9,8 +9,7 @@ class AuctionLedger extends React.Component {
     return (
       <div>
         <h1>{this.props.type}</h1>
-        <Bid type = {this.props.type} price='20' />
-        <Bid type = {this.props.type} price="25" />
+        <BidList />
         <AuctionForm />
       </div>
     )

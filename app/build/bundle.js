@@ -61,7 +61,7 @@
 	
 	var _AuctionLedger2 = _interopRequireDefault(_AuctionLedger);
 	
-	var _ClearingLedger = __webpack_require__(/*! ./components/ClearingLedger */ 178);
+	var _ClearingLedger = __webpack_require__(/*! ./components/ClearingLedger */ 176);
 	
 	var _ClearingLedger2 = _interopRequireDefault(_ClearingLedger);
 	
@@ -22037,8 +22037,7 @@
 	          null,
 	          this.props.type
 	        ),
-	        _react2.default.createElement(_Bid2.default, { type: this.props.type, price: '20' }),
-	        _react2.default.createElement(_Bid2.default, { type: this.props.type, price: '25' }),
+	        _react2.default.createElement(_BidList2.default, null),
 	        _react2.default.createElement(_AuctionForm2.default, null)
 	      );
 	    }
@@ -22171,7 +22170,7 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _fs = __webpack_require__(/*! fs */ 176);
+	var _fs = __webpack_require__(/*! fs */ 177);
 	
 	var _fs2 = _interopRequireDefault(_fs);
 	
@@ -22181,6 +22180,14 @@
 	
 	var _reactDom = __webpack_require__(/*! react-dom */ 34);
 	
+	var _BidData = __webpack_require__(/*! json!../data/BidData.json */ 178);
+	
+	var _BidData2 = _interopRequireDefault(_BidData);
+	
+	var _Bid = __webpack_require__(/*! ./Bid */ 173);
+	
+	var _Bid2 = _interopRequireDefault(_Bid);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22189,22 +22196,8 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var json = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"json!../data/BidData.json\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	// import json from 'json-loader'
 	// import BidData from  'json!../data/BidData.json'
-	
-	
-	// class BidList extends React.Component {
-	//   componentDidMount() {
-	//     var contents = fs.readFileSync(BigData);
-	//
-	//   }
-	//   render() {
-	//     return (
-	//       <p> Bid 1: $20 </p>
-	//     )
-	//   }
-	// }
 	
 	var BidList = function (_React$Component) {
 	  _inherits(BidList, _React$Component);
@@ -22218,14 +22211,17 @@
 	  _createClass(BidList, [{
 	    key: 'render',
 	    value: function render() {
+	      var bidNodes = _BidData2.default.map(function (bid, i) {
+	        return _react2.default.createElement(
+	          _Bid2.default,
+	          { key: i, price: bid.price, amount: bid.amount },
+	          bid.price
+	        );
+	      });
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'this is Bid List'
-	        )
+	        bidNodes
 	      );
 	    }
 	  }]);
@@ -22233,20 +22229,20 @@
 	  return BidList;
 	}(_react2.default.Component);
 	
+	// class BidList extends React.Component {
+	//   render () {
+	//     return (
+	//       <div>
+	//         <p>this is Bid List</p>
+	//       </div>
+	//     )
+	//   }
+	// }
+	
 	module.exports = BidList;
 
 /***/ },
 /* 176 */
-/*!*******************************************!*\
-  !*** ./~/node-libs-browser/mock/empty.js ***!
-  \*******************************************/
-/***/ function(module, exports) {
-
-
-
-/***/ },
-/* 177 */,
-/* 178 */
 /*!******************************************!*\
   !*** ./app/components/ClearingLedger.js ***!
   \******************************************/
@@ -22298,6 +22294,40 @@
 	}(_react2.default.Component);
 	
 	module.exports = ClearingLedger;
+
+/***/ },
+/* 177 */
+/*!*******************************************!*\
+  !*** ./~/node-libs-browser/mock/empty.js ***!
+  \*******************************************/
+/***/ function(module, exports) {
+
+
+
+/***/ },
+/* 178 */
+/*!***********************************************!*\
+  !*** ./~/json-loader!./app/data/BidData.json ***!
+  \***********************************************/
+/***/ function(module, exports) {
+
+	module.exports = [
+		{
+			"price": "$10",
+			"amount": "4",
+			"id": 1
+		},
+		{
+			"price": "$12",
+			"contractAddress": "2",
+			"id": 2
+		},
+		{
+			"price": "$15",
+			"amount": "5",
+			"id": 3
+		}
+	];
 
 /***/ }
 /******/ ]);
