@@ -13,6 +13,7 @@ class BidList extends React.Component {
       return (
         <Bid key={i} price={bid.price} amount={bid.amount}>
           {bid.price}
+          {bid.amount}
         </Bid>
       )
     })

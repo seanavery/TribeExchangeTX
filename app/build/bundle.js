@@ -22140,23 +22140,49 @@
 	      price: '0',
 	      amount: '0'
 	    };
-	    _this.handleChange = _this.handleChange.bind(_this);
+	    _this.handlePriceChange = _this.handlePriceChange.bind(_this);
+	    _this.handleAmountChange = _this.handleAmountChange.bind(_this);
 	    _this.handleSubmit = _this.handleSubmit.bind(_this);
 	    return _this;
 	  }
 	
 	  _createClass(AuctionForm, [{
-	    key: 'handleChange',
-	    value: function handleChange(event) {
+	    key: 'handlePriceChange',
+	    value: function handlePriceChange(event) {
 	      console.log('change has occrued');
-	      this.setState({ price: event.target.price });
+	      this.setState({
+	        price: event.target.price
+	      });
+	      console.log('state price is ' + this.state.price);
+	    }
+	  }, {
+	    key: 'handleAmountChange',
+	    value: function handleAmountChange(event) {
+	      console.log('change has occrued');
+	      this.setState({
+	        amount: event.target.amount
+	      });
 	    }
 	  }, {
 	    key: 'handleSubmit',
 	    value: function handleSubmit(event) {
-	      // var price = this.state.price;
-	      // var amount = this.state.amount;
-	      console.log('Submitting: ' + this.state.price);
+	      event.preventDefault();
+	      var price = this.state.price.trim();
+	      var amount = this.state.amount.trim();
+	      if (!price || !amount) {
+	        return;
+	      }
+	      //update info in BidData.json
+	      var file = '../data/BidData.json';
+	      var obj = { price: price, amount: amount };
+	      _jsonfile2.default.writeFile(file, obj, { spaces: 2 }, function (err) {
+	        console.error(err);
+	      });
+	      // clear state
+	      this.setState = {
+	        price: '0',
+	        amount: '0'
+	      };
 	    }
 	  }, {
 	    key: 'render',
@@ -22166,10 +22192,17 @@
 	        { onSubmit: this.handleSubmit },
 	        _react2.default.createElement('input', {
 	          type: 'text',
-	          defaultValue: '$0',
-	          onChange: this.handleChange
+	          placeholder: 'Enter Price',
+	          value: this.state.price,
+	          onChange: this.handlePriceChange
 	        }),
-	        _react2.default.createElement('input', { type: 'submit', value: 'Post' })
+	        _react2.default.createElement('input', {
+	          type: 'text',
+	          placeholder: 'Enter Amount',
+	          value: this.state.amount,
+	          onChange: this.handleAmountChange
+	        }),
+	        _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
 	      );
 	    }
 	  }]);
@@ -22235,7 +22268,8 @@
 	        return _react2.default.createElement(
 	          _Bid2.default,
 	          { key: i, price: bid.price, amount: bid.amount },
-	          bid.price
+	          bid.price,
+	          bid.amount
 	        );
 	      });
 	      return _react2.default.createElement(
