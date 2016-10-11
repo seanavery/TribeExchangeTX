@@ -3,6 +3,7 @@ import React from 'react'
 import {render} from 'react-dom'
 import BidData from '!json!../data/BidData.json'
 import Bid from './Bid'
+
   // import json from 'json-loader'
 // import BidData from  'json!../data/BidData.json'
 
