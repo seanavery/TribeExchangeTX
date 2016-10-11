@@ -1,29 +1,28 @@
 import React from 'react'
 import {render} from 'react-dom'
+import fs from 'fs'
 import jsonfile from 'jsonfile'
 
 class AuctionForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      price : '0',
-      amount : '0'
+      price : 0,
+      amount : 0
     }
+    console.log(this.state)
     this.handlePriceChange = this.handlePriceChange.bind(this)
     this.handleAmountChange = this.handleAmountChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
-  handlePriceChange(event) {
-    console.log('change has occrued')
+  handlePriceChange(e) {
     this.setState({
-      price: event.target.price,
+      price: e.target.value,
     })
-    console.log('state price is ' + this.state.price)
   }
-  handleAmountChange(event) {
-    console.log('change has occrued')
+  handleAmountChange(e) {
     this.setState({
-      amount: event.target.amount,
+      amount: e.target.value,
     })
   }
   handleSubmit(event) {

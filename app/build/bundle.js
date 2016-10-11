@@ -22116,6 +22116,10 @@
 	
 	var _reactDom = __webpack_require__(/*! react-dom */ 34);
 	
+	var _fs = __webpack_require__(/*! fs */ 176);
+	
+	var _fs2 = _interopRequireDefault(_fs);
+	
 	var _jsonfile = __webpack_require__(/*! jsonfile */ 179);
 	
 	var _jsonfile2 = _interopRequireDefault(_jsonfile);
@@ -22137,9 +22141,10 @@
 	    var _this = _possibleConstructorReturn(this, (AuctionForm.__proto__ || Object.getPrototypeOf(AuctionForm)).call(this, props));
 	
 	    _this.state = {
-	      price: '0',
-	      amount: '0'
+	      price: 0,
+	      amount: 0
 	    };
+	    console.log(_this.state);
 	    _this.handlePriceChange = _this.handlePriceChange.bind(_this);
 	    _this.handleAmountChange = _this.handleAmountChange.bind(_this);
 	    _this.handleSubmit = _this.handleSubmit.bind(_this);
@@ -22148,19 +22153,16 @@
 	
 	  _createClass(AuctionForm, [{
 	    key: 'handlePriceChange',
-	    value: function handlePriceChange(event) {
-	      console.log('change has occrued');
+	    value: function handlePriceChange(e) {
 	      this.setState({
-	        price: event.target.price
+	        price: e.target.value
 	      });
-	      console.log('state price is ' + this.state.price);
 	    }
 	  }, {
 	    key: 'handleAmountChange',
-	    value: function handleAmountChange(event) {
-	      console.log('change has occrued');
+	    value: function handleAmountChange(e) {
 	      this.setState({
-	        amount: event.target.amount
+	        amount: e.target.value
 	      });
 	    }
 	  }, {
