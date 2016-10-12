@@ -10,8 +10,14 @@ contract Exchange {
 
     Bid[] public Bids;
     Ask[] public Asks;
-
-    function submitBid(uint _price, uint _amount) returns (bool) {
+    uint example = 1;
+    modifier bidInMarket(uint _price) {
+        if (Asks.length > 0) {
+            if (_price < Asks[0].price) throw;
+        }
+        _;
+    }
+    function submitBid(uint _price, uint _amount) bidInMarket(_price) returns (bool) {
         Bid memory b;
         b.price = _price;
         b.amount = _amount;
@@ -55,4 +61,9 @@ contract Exchange {
         return true;
     }
 
+    // function matchBid() returns (bool) {
+    //     for(uint i = Asks.length; i>= 0 i--) {
+    //         fo
+    //     }
+    // }
 }
