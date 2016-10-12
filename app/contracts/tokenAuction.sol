@@ -38,7 +38,7 @@ contract Exchange {
         a.price = _price;
         a.amount = _amount;
         for (uint i = 0; i < Asks.length; i ++) {
-            if(Asks[i].price > _price) {
+            if(Asks[i].price < _price) {
                 Ask[] memory tempAsks = new Ask[](Asks.length - i);
                 for (uint j = i; j < Asks.length; j++) {
                     tempAsks[j-i] = Asks[j];
@@ -55,5 +55,4 @@ contract Exchange {
         return true;
     }
 
-
-} 
+}
