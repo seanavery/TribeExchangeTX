@@ -1,8 +1,10 @@
 contract Exchange {
+
     struct Bid {
         uint price;
         uint amount;
     }
+
     struct Ask {
         uint price;
         uint amount;
@@ -10,13 +12,21 @@ contract Exchange {
 
     Bid[] public Bids;
     Ask[] public Asks;
-    uint example = 1;
+
     modifier bidInMarket(uint _price) {
         if (Asks.length > 0) {
-            if (_price < Asks[0].price) throw;
+            if (_price < Asks[Asks.length -1].price) throw;
         }
         _;
     }
+
+    modifier askInMarket(uint _price) {
+        if (Bids.length > 0) {
+            if (_price > Bids[Bids.length-1].price) throw;
+        }
+        _;
+    }
+
     function submitBid(uint _price, uint _amount) bidInMarket(_price) returns (bool) {
         Bid memory b;
         b.price = _price;
@@ -39,7 +49,7 @@ contract Exchange {
         return true;
     }
 
-    function submitAsk(uint _price, uint _amount) returns (bool) {
+    function submitAsk(uint _price, uint _amount) askInMarket(_price) returns (bool) {
         Ask memory a;
         a.price = _price;
         a.amount = _amount;
@@ -61,9 +71,4 @@ contract Exchange {
         return true;
     }
 
-    // function matchBid() returns (bool) {
-    //     for(uint i = Asks.length; i>= 0 i--) {
-    //         fo
-    //     }
-    // }
 }
