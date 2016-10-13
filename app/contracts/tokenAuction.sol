@@ -71,4 +71,17 @@ contract Exchange {
         return true;
     }
 
+    modifier amountLeftBid(uint index) {
+        if(Bids[index].amount <= 0) throw;
+        _;
+    }
+
+    function matchBid(uint bid_index, uint ask_index) amountLeftBid(bid_index) {
+        Asks[ask_index].amount--;
+        Bids[bid_index].amount--;
+        if(Asks[ask_index].amount <= 0) {
+            matchBid(bid_index, ask_index--);
+        }
+        matchBid(bid_index, ask_index);
+    }
 }
