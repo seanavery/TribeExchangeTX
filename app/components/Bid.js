@@ -5,8 +5,9 @@ class Bid extends React.Component {
   render () {
     return (
       <div>
-        {this.props.type}
+        {this.props.id}
         {this.props.price}
+        {this.props.amount}
       </div>
     )
   }

@@ -6,10 +6,14 @@ import BidList from './BidList'
 
 class AuctionLedger extends React.Component {
   render () {
+    var data = [
+      {id: 1, price: 10, amount: 5},
+      {id: 2, price: 12, amount: 5}
+    ];
     return (
       <div>
         <h1>{this.props.type}</h1>
-        <BidList />
+        <BidList data={data} />
         <AuctionForm />
       </div>
     )
