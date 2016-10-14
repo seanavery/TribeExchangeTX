@@ -76,16 +76,16 @@ contract Exchange {
         _;
     }
 
-    function matchBid(uint bid_index, uint ask_index) amountLeftBid(bid_index) returns (uint) {
+    function matchBid(uint bid_index, uint ask_index) returns (bool) {
+        if (Bids[bid_index].amount <= 0 || Bids[bid_index].price < Asks[ask_index].price) {
+            return true;
+        }
         Asks[ask_index].amount = Asks[ask_index].amount - 1;
         Bids[bid_index].amount = Bids[bid_index].amount - 1;
-        // if(Asks[ask_index].amount == 0) {
-        //     // matchBid(bid_index, --ask_index);
-        //     return true;
-        // }
-        // matchBid(bid_index, ask_index);
         if (Asks[ask_index].amount == 0) {
-            return 100;
+            ask_index = ask_index - 1;
+            return(matchBid(bid_index, ask_index));
+
         }
         return(matchBid(bid_index, ask_index));
     }

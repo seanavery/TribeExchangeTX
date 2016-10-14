@@ -11,7 +11,7 @@ class NavBar extends React.Component {
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#">TX Tribe Exchange</a>
+            <a href="#"><b>TX</b> Tribe Exchange</a>
           </Navbar.Brand>
         </Navbar.Header>
       </Navbar>
