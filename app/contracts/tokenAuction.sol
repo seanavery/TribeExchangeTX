@@ -27,7 +27,7 @@ contract Exchange {
         _;
     }
 
-    function submitBid(uint _price, uint _amount) bidInMarket(_price) returns (bool) {
+    function submitBid(uint _price, uint _amount) bidInMarket(_price) external returns (bool) {
         Bid memory b;
         b.price = _price;
         b.amount = _amount;
@@ -49,7 +49,7 @@ contract Exchange {
         return true;
     }
 
-    function submitAsk(uint _price, uint _amount) askInMarket(_price) returns (bool) {
+    function submitAsk(uint _price, uint _amount) askInMarket(_price) external returns (bool) {
         Ask memory a;
         a.price = _price;
         a.amount = _amount;
@@ -71,7 +71,7 @@ contract Exchange {
         return true;
     }
 
-    function matchBid(uint bid_index, uint ask_index) returns (bool) {
+    function matchBid(uint bid_index, uint ask_index) internal returns (bool) {
         if (Bids[bid_index].amount <= 0 || Bids[bid_index].price < Asks[ask_index].price || ask_index < 0) {
             return true;
         }
@@ -83,4 +83,8 @@ contract Exchange {
         }
         return(matchBid(bid_index, ask_index));
     }
+
+    // function cleanLedger() {
+    //     for(uint i)
+    // }
 }
