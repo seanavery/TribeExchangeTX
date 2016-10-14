@@ -22025,6 +22025,10 @@
 	
 	var _reactBootstrap = __webpack_require__(/*! react-bootstrap */ 175);
 	
+	var _BidForm = __webpack_require__(/*! ./BidForm */ 429);
+	
+	var _BidForm2 = _interopRequireDefault(_BidForm);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22057,7 +22061,8 @@
 	            'Bid Ledger'
 	          )
 	        ),
-	        _react2.default.createElement(_BidLedger2.default, null)
+	        _react2.default.createElement(_BidLedger2.default, null),
+	        _react2.default.createElement(_BidForm2.default, null)
 	      );
 	    }
 	  }]);
@@ -22087,6 +22092,10 @@
 	var _AskLedger = __webpack_require__(/*! ./AskLedger */ 428);
 	
 	var _AskLedger2 = _interopRequireDefault(_AskLedger);
+	
+	var _AskForm = __webpack_require__(/*! ./AskForm */ 430);
+	
+	var _AskForm2 = _interopRequireDefault(_AskForm);
 	
 	var _reactBootstrap = __webpack_require__(/*! react-bootstrap */ 175);
 	
@@ -22122,7 +22131,8 @@
 	            'Ask Ledger'
 	          )
 	        ),
-	        _react2.default.createElement(_AskLedger2.default, null)
+	        _react2.default.createElement(_AskLedger2.default, null),
+	        _react2.default.createElement(_AskForm2.default, null)
 	      );
 	    }
 	  }]);
@@ -22188,7 +22198,7 @@
 	            _react2.default.createElement(
 	              'a',
 	              { href: '#' },
-	              'Tribe Exchange TX'
+	              'TX Tribe Exchange'
 	            )
 	          )
 	        )
@@ -42007,6 +42017,192 @@
 	}(_react2.default.Component);
 	
 	module.exports = AskLedger;
+
+/***/ },
+/* 429 */
+/*!***********************************!*\
+  !*** ./app/components/BidForm.js ***!
+  \***********************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactDom = __webpack_require__(/*! react-dom */ 34);
+	
+	var _reactBootstrap = __webpack_require__(/*! react-bootstrap */ 175);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var BidForm = function (_React$Component) {
+	  _inherits(BidForm, _React$Component);
+	
+	  function BidForm(props) {
+	    _classCallCheck(this, BidForm);
+	
+	    var _this = _possibleConstructorReturn(this, (BidForm.__proto__ || Object.getPrototypeOf(BidForm)).call(this, props));
+	
+	    _this.state = {
+	      price: 0,
+	      amount: 0
+	    };
+	    console.log(_this.state);
+	    _this.handlePriceChange = _this.handlePriceChange.bind(_this);
+	    _this.handleAmountChange = _this.handleAmountChange.bind(_this);
+	    _this.handleSubmit = _this.handleSubmit.bind(_this);
+	    return _this;
+	  }
+	
+	  _createClass(BidForm, [{
+	    key: 'handlePriceChange',
+	    value: function handlePriceChange(e) {
+	      this.setState({
+	        price: e.target.value
+	      });
+	    }
+	  }, {
+	    key: 'handleAmountChange',
+	    value: function handleAmountChange(e) {
+	      this.setState({
+	        amount: e.target.value
+	      });
+	    }
+	  }, {
+	    key: 'handleSubmit',
+	    value: function handleSubmit() {
+	      console.log(this.state);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'form',
+	        { onSubmit: this.handleSubmit },
+	        _react2.default.createElement('input', {
+	          type: 'text',
+	          placeholder: 'Enter Price',
+	          value: this.state.price,
+	          onChange: this.handlePriceChange
+	        }),
+	        _react2.default.createElement('input', {
+	          type: 'text',
+	          placeholder: 'Enter Amount',
+	          value: this.state.amount,
+	          onChange: this.handleAmountChange
+	        }),
+	        _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
+	      );
+	    }
+	  }]);
+	
+	  return BidForm;
+	}(_react2.default.Component);
+	
+	module.exports = BidForm;
+
+/***/ },
+/* 430 */
+/*!***********************************!*\
+  !*** ./app/components/AskForm.js ***!
+  \***********************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactDom = __webpack_require__(/*! react-dom */ 34);
+	
+	var _reactBootstrap = __webpack_require__(/*! react-bootstrap */ 175);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var AskForm = function (_React$Component) {
+	  _inherits(AskForm, _React$Component);
+	
+	  function AskForm(props) {
+	    _classCallCheck(this, AskForm);
+	
+	    var _this = _possibleConstructorReturn(this, (AskForm.__proto__ || Object.getPrototypeOf(AskForm)).call(this, props));
+	
+	    _this.state = {
+	      price: 0,
+	      amount: 0
+	    };
+	    console.log(_this.state);
+	    _this.handlePriceChange = _this.handlePriceChange.bind(_this);
+	    _this.handleAmountChange = _this.handleAmountChange.bind(_this);
+	    _this.handleSubmit = _this.handleSubmit.bind(_this);
+	    return _this;
+	  }
+	
+	  _createClass(AskForm, [{
+	    key: 'handlePriceChange',
+	    value: function handlePriceChange(e) {
+	      this.setState({
+	        price: e.target.value
+	      });
+	    }
+	  }, {
+	    key: 'handleAmountChange',
+	    value: function handleAmountChange(e) {
+	      this.setState({
+	        amount: e.target.value
+	      });
+	    }
+	  }, {
+	    key: 'handleSubmit',
+	    value: function handleSubmit() {
+	      console.log(this.state);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'form',
+	        { onSubmit: this.handleSubmit },
+	        _react2.default.createElement('input', {
+	          type: 'text',
+	          placeholder: 'Enter Price',
+	          value: this.state.price,
+	          onChange: this.handlePriceChange
+	        }),
+	        _react2.default.createElement('input', {
+	          type: 'text',
+	          placeholder: 'Enter Amount',
+	          value: this.state.amount,
+	          onChange: this.handleAmountChange
+	        }),
+	        _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
+	      );
+	    }
+	  }]);
+	
+	  return AskForm;
+	}(_react2.default.Component);
+	
+	module.exports = AskForm;
 
 /***/ }
 /******/ ]);

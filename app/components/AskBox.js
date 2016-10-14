@@ -1,6 +1,7 @@
 import React from 'react'
 import {render} from 'react-dom'
 import AskLedger from './AskLedger'
+import AskForm from './AskForm'
 import { PageHeader } from 'react-bootstrap'
 
 class AskBox extends React.Component {
@@ -9,6 +10,7 @@ class AskBox extends React.Component {
       <div>
         <PageHeader><small>Ask Ledger</small></PageHeader>
         <AskLedger />
+        <AskForm />
       </div>
     )
   }
