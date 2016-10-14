@@ -22023,6 +22023,8 @@
 	
 	var _BidLedger2 = _interopRequireDefault(_BidLedger);
 	
+	var _reactBootstrap = __webpack_require__(/*! react-bootstrap */ 175);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22046,6 +22048,15 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
+	        _react2.default.createElement(
+	          _reactBootstrap.PageHeader,
+	          null,
+	          _react2.default.createElement(
+	            'small',
+	            null,
+	            'Bid Ledger'
+	          )
+	        ),
 	        _react2.default.createElement(_BidLedger2.default, null)
 	      );
 	    }
@@ -22077,6 +22088,8 @@
 	
 	var _AskLedger2 = _interopRequireDefault(_AskLedger);
 	
+	var _reactBootstrap = __webpack_require__(/*! react-bootstrap */ 175);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22100,6 +22113,15 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
+	        _react2.default.createElement(
+	          _reactBootstrap.PageHeader,
+	          null,
+	          _react2.default.createElement(
+	            'small',
+	            null,
+	            'Ask Ledger'
+	          )
+	        ),
 	        _react2.default.createElement(_AskLedger2.default, null)
 	      );
 	    }
