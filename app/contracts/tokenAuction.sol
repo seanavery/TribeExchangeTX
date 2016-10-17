@@ -87,6 +87,22 @@ contract Exchange {
         return(matchBid(bid_index, ask_index));
     }
 
+    function matchAsk(uint ask_index, uint bid_index) returns (bool) {
+        if(Asks[ask_index].amount <= 0 || Asks[ask_index].price > Bids[bid_index].price) {
+            return true;
+        }
+        Bids[bid_index].amount--;
+        Asks[ask_index].amount--;
+        if(Bids[bid_index].amount == 0) {
+            if(bid_index == 0) {
+                return true;
+            }
+            bid_index--;
+            return(matchAsk(ask_index, bid_index));
+        }
+        return(matchAsk(ask_index, bid_index));
+    }
+
     function cleanAskLedger() returns (bool) {
         for(uint i = Asks.length - 1; i >= 0; i--) {
             if (Asks[i].amount > 0) {
@@ -94,5 +110,6 @@ contract Exchange {
             }
         }
         Asks.length = i + 1;
+        return true;
     }
 }
