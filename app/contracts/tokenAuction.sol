@@ -112,4 +112,14 @@ contract Exchange {
         Asks.length = i + 1;
         return true;
     }
+
+    function cleanBidLedger() returns (bool) {
+        for(uint i = Bids.length -1; i >= 0; i--) {
+            if(Bids[i].amount > 0) {
+                break;
+            }
+        }
+        Bids.length = i + 1;
+        return true;
+    }
 }
