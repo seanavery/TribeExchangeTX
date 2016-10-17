@@ -86,4 +86,13 @@ contract Exchange {
         }
         return(matchBid(bid_index, ask_index));
     }
+
+    function cleanAskLedger() returns (bool) {
+        for(uint i = Asks.length - 1; i >= 0; i--) {
+            if (Asks[i].amount > 0) {
+                break;
+            }
+        }
+        Asks.length = i + 1;
+    }
 }
