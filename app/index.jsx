@@ -4,7 +4,8 @@ import  { Grid, Row, Col } from 'react-bootstrap'
 import BidBox from './components/BidBox'
 import AskBox from './components/AskBox'
 import NavBar from './components/NavBar'
-
+import ClearingBox from './components/ClearingBox'
+import ClearingGraph from './components/ClearingGraph'
 class App extends React.Component {
   render () {
     return (
@@ -17,6 +18,14 @@ class App extends React.Component {
             </Col>
             <Col xs={12} md={6}>
               <AskBox />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} md={6}>
+              <ClearingBox />
+            </Col>
+            <Col xs={12} md={6}>
+              <ClearingGraph />
             </Col>
           </Row>
         </Grid>

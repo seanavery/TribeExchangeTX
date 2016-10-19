@@ -71,6 +71,14 @@
 	
 	var _NavBar2 = _interopRequireDefault(_NavBar);
 	
+	var _ClearingBox = __webpack_require__(/*! ./components/ClearingBox */ 431);
+	
+	var _ClearingBox2 = _interopRequireDefault(_ClearingBox);
+	
+	var _ClearingGraph = __webpack_require__(/*! ./components/ClearingGraph */ 432);
+	
+	var _ClearingGraph2 = _interopRequireDefault(_ClearingGraph);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -110,6 +118,20 @@
 	              _reactBootstrap.Col,
 	              { xs: 12, md: 6 },
 	              _react2.default.createElement(_AskBox2.default, null)
+	            )
+	          ),
+	          _react2.default.createElement(
+	            _reactBootstrap.Row,
+	            null,
+	            _react2.default.createElement(
+	              _reactBootstrap.Col,
+	              { xs: 12, md: 6 },
+	              _react2.default.createElement(_ClearingBox2.default, null)
+	            ),
+	            _react2.default.createElement(
+	              _reactBootstrap.Col,
+	              { xs: 12, md: 6 },
+	              _react2.default.createElement(_ClearingGraph2.default, null)
 	            )
 	          )
 	        )
@@ -42208,6 +42230,114 @@
 	}(_react2.default.Component);
 	
 	module.exports = NavBar;
+
+/***/ },
+/* 431 */
+/*!***************************************!*\
+  !*** ./app/components/ClearingBox.js ***!
+  \***************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactDom = __webpack_require__(/*! react-dom */ 34);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var ClearingBox = function (_React$Component) {
+	  _inherits(ClearingBox, _React$Component);
+	
+	  function ClearingBox() {
+	    _classCallCheck(this, ClearingBox);
+	
+	    return _possibleConstructorReturn(this, (ClearingBox.__proto__ || Object.getPrototypeOf(ClearingBox)).apply(this, arguments));
+	  }
+	
+	  _createClass(ClearingBox, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'Clearing Box '
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return ClearingBox;
+	}(_react2.default.Component);
+	
+	module.exports = ClearingBox;
+
+/***/ },
+/* 432 */
+/*!*****************************************!*\
+  !*** ./app/components/ClearingGraph.js ***!
+  \*****************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactDom = __webpack_require__(/*! react-dom */ 34);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var ClearingGraph = function (_React$Component) {
+	  _inherits(ClearingGraph, _React$Component);
+	
+	  function ClearingGraph() {
+	    _classCallCheck(this, ClearingGraph);
+	
+	    return _possibleConstructorReturn(this, (ClearingGraph.__proto__ || Object.getPrototypeOf(ClearingGraph)).apply(this, arguments));
+	  }
+	
+	  _createClass(ClearingGraph, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'Clearing Graph '
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return ClearingGraph;
+	}(_react2.default.Component);
+	
+	module.exports = ClearingGraph;
 
 /***/ }
 /******/ ]);
