@@ -24,4 +24,8 @@ contract ShareholderAgreement {
         Shareholders[msg.sender].date = now;
         return true;
     }
+
+    function getAddress() returns(address) {
+        return msg.sender;
+    }
 }
