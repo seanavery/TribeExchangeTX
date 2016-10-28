@@ -83,12 +83,14 @@ contract Exchange {
 
     function matchBid(uint bid_index, uint ask_index) returns (bool) {
         if (Bids[bid_index].amount <= 0 || Bids[bid_index].price < Asks[ask_index].price) {
+            cleanAskLedger();
             return true;
         }
         Asks[ask_index].amount = Asks[ask_index].amount - 1;
         Bids[bid_index].amount = Bids[bid_index].amount - 1;
         if (Asks[ask_index].amount == 0) {
             if (ask_index == 0) {
+                cleanAskLedger();
                 return true;
             }
             ask_index = ask_index - 1;
