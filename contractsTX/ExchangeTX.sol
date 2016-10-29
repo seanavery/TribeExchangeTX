@@ -48,7 +48,9 @@ contract Exchange {
                 for(uint k = 0; k < tempBids.length; k++) {
                     Bids[i+k+1] = tempBids[k];
                 }
-                matchBid(i, Asks.length-1);
+                if(Asks.length > 0) {
+                    matchBid(i, Asks.length-1);
+                }
                 return true;
             }
         }
@@ -76,7 +78,9 @@ contract Exchange {
                 for (uint k = 0; k < tempAsks.length; k++) {
                     Asks[i+k+1] = tempAsks[k];
                 }
-                matchAsk(i, Bids.length-1);
+                if(Bids.length > 0) {
+                    matchAsk(i, Bids.length-1);
+                }
                 return true;
             }
         }
