@@ -53,7 +53,9 @@ contract Exchange {
             }
         }
         Bids.push(b);
-        matchBid(Bids.length-1, Asks.length-1);
+        if(Asks.length > 0) {
+            matchBid(Bids.length-1, Asks.length-1);
+        }
         return true;
     }
 
@@ -74,10 +76,14 @@ contract Exchange {
                 for (uint k = 0; k < tempAsks.length; k++) {
                     Asks[i+k+1] = tempAsks[k];
                 }
+                matchAsk(i, Bids.length-1);
                 return true;
             }
         }
         Asks.push(a);
+        if(Bids.length > 0) {
+            matchAsk(Asks.length-1, Bids.length-1);
+        }
         return true;
     }
 
