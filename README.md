@@ -1,8 +1,9 @@
 
 # TX TRIBE EXCHANGE
-Lightweight, modular, decentralized token exchange for Ethereum equity tokens.
-OTC, continuous-time double auction
-Works with standard token contract
+Modular, Scalable, Decentralized Exchange
+
+## Summary
+TX is a financial exchange that runs entirely within the Ethereum Virtual Machine. A set of programs (or Smart Contracts) contain all of the computation and data necessary to run a full scale double-auction for Ethereum based Digital Assets. This means Startups can spin up their own exchange that runs completely autonomously and with zero cost.
 
 ## Installation
 1. git clone https://github.com/SeanAvery/Tribe_Exchange-TX.git
