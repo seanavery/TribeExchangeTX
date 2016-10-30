@@ -16,11 +16,18 @@ TX Exchange does not pool any funds into ‘hot wallets’-- Instead, user’s c
 ## Contract Review
 
 ### Exchange Contract (ExchangeTX.sol)
+<script src="https://gist.github.com/SeanAvery/a06416870139611eec1de11f5f4e0bae.js"></script>
 
 #### Design Decisions:
 #### Sorting:
 #### Matching:
 #### Cleaning:
+
+### Escrow Registry
+
+### Bid Escrow
+
+### Ask Escrow
 
 ## Installation
 1. git clone https://github.com/SeanAvery/Tribe_Exchange-TX.git
