@@ -1,6 +1,6 @@
 pragma solidity ^0.4.3;
 
-// import * as Exchange from "Exchange.sol";
+import "ExchangeTX.sol";
 
 contract BidEscrow {
 
@@ -38,7 +38,8 @@ contract BidEscrow {
     }
 
 
-    // function submitToExchange() {
-
-    // }
+    function submitToExchange() returns(bool) {
+        ExchangeTX e = ExchangeTX(0x692a70d2e424a56d2c6c27aa97d1a86395877b3a);
+        e.submitBid(BidInfo.price, BidInfo.amount);
+    }
 }
