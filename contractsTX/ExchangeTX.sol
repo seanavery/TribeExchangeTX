@@ -1,4 +1,4 @@
-contract Exchange {
+contract ExchangeTX {
 
     struct Bid {
         address owner;
