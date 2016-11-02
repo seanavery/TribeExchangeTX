@@ -10,7 +10,7 @@ contract AskEscrow {
 
     bool public Response;
 
-    function AskEscrow(uint _amount, uint _price) {
+    function AskEscrow(uint _price, uint _amount) {
         AskInfo.asker = msg.sender;
         AskInfo.blockstamp = now;
         AskInfo.amount = _amount;
@@ -19,14 +19,20 @@ contract AskEscrow {
         Response = false;
     }
 
-    modifier sufficientAssets(uint _amount, uint _price) {
+    modifier sufficientAssets(uint _price, uint _amount) {
         // if(msg.value < _amount * _price) throw;
 
         _;
     }
 
-    function submitEscrowAsk(uint _amount, uint _price) sufficientFunds(_amount, _price) returns (bool) {
+    function vaultAssets() returns (bool) {
+        return true;
+    }
 
+    function submitEscrowAsk()  returns (bool) {
+        ExchangeTX e = ExchangeTX(0x692a70d2e424a56d2c6c27aa97d1a86395877b3a);
+        e.submitAsk(AskInfo.price, AskInfo.amount);
+        return true;
     }
 
     function withdrawAssets() {
