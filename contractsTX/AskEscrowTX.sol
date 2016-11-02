@@ -1,3 +1,7 @@
+import "ShareholderTX.sol";
+import "ExchangeTX.sol";
+import "BidEscrowTX.sol";
+
 contract AskEscrow {
     struct Ask {
         address asker;
@@ -29,13 +33,19 @@ contract AskEscrow {
         return true;
     }
 
-    function submitEscrowAsk()  returns (bool) {
-        ExchangeTX e = ExchangeTX(0x692a70d2e424a56d2c6c27aa97d1a86395877b3a);
+    function submitToExchange()  returns (bool) {
+        ExchangeTX e = ExchangeTX(0xbbf289d846208c16edc8474705c748aff07732db );
         e.submitAsk(AskInfo.price, AskInfo.amount);
         return true;
     }
 
     function withdrawAssets() {
 
+    }
+
+    function sendAssetstoBuyer(uint _amount, address _toaddress) returns (bool) {
+        ShareholderTX s = ShareholderTX(0x692a70d2e424a56d2c6c27aa97d1a86395877b3a);
+        s.transferShares(_amount, _toaddress);
+        return true;
     }
 }
