@@ -24,9 +24,8 @@ contract BidEscrow {
         Response = false;
     }
 
-    modifier sufficientFunds(uint _amount, uint _price) {
-        if(msg.value < _amount * _price) throw;
-        Response = true;
+    modifier sufficientFunds() {
+        if(msg.value < BidInfo.amount * BidInfo.price) throw;
         _;
     }
 
@@ -38,8 +37,15 @@ contract BidEscrow {
     }
 
 
-    function submitToExchange() returns(bool) {
+    function submitToExchange() sufficientFunds() returns(bool) {
         ExchangeTX e = ExchangeTX(0x692a70d2e424a56d2c6c27aa97d1a86395877b3a);
         e.submitBid(BidInfo.price, BidInfo.amount);
+        return true;
+    }
+
+    function sendFunds(address _seller_address) returns(bool) {
+        _seller_address.send(this.balance);
+        Response = true;
+        return true;
     }
 }
