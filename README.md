@@ -5,6 +5,9 @@ Modular, Scalable, Decentralized Exchange
 ## Summary
 TX is a financial exchange that runs entirely within the Ethereum Virtual Machine. A set of programs (or Smart Contracts) contain all of the computation and data necessary to run a full scale double-auction for Ethereum based Digital Assets. This means Startups can spin up their own exchange that runs completely autonomously and with zero cost.
 
+## Continuous-Time Double Auction
+The Exchange matches bids/asks synchronously as they enter the market. Matching is based on the best price in the market: greatest bids and least asks processed first. Continous time auctions offer the highest fidelity interpolation of the true market value. Small scale arbitrage opportunities available appropriately incentivize market makers.
+
 ## Execution Flow
 TX is able to exchange Ether with Digital Assets. User ‘B’ can submit a Buy order-- the Ether is sent to an individually owned escrow contract where it is locked in until response is received from Exchange Contract. Likewise, User 'A' submits a Sell order that transfers ownership of the Digital Assets to an escrow contract for the resultant time. Escrow Contracts check that sufficient funds are sent and submit orders to Exchange Contract. The exchange algorithm checks that the order is in the market and sorts the incoming market order into the Bid/Ask Ledger. The matching algorithm gives preference to favorable price meaning highest bid first, lowest ask first. The order is matched recursively until complete or none are left in the market. The Exchange Algorithm sends results to the Escrow Contracts, which then transfer Ether and Digital Assets to their matched peer directly.
 
