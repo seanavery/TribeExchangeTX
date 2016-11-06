@@ -28,7 +28,7 @@
     "react-bootstrap": "^0.30.5",
     "react-bootstrap-table": "^2.5.5",
     "react-dom": "^15.3.2",
-    "solc": "^0.4.2",
+    "solc": "^0.4.4",
     "web3": "^0.17.0-beta",
     "webpack": "^1.13.2"
   }
