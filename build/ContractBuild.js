@@ -14,7 +14,8 @@ fs.readdir(testFolder, (err, files) => {
           for (var contractName in output.contracts) {
             // code and ABI that are needed by web3
             console.log(contractName + ': ' + output.contracts[contractName].bytecode);
-            console.log(contractName + '; ' + JSON.parse(output.contracts[contractName].interface));
+            console.log(contractName + '; ' + output.contracts[contractName].interface);
+            
           }
         } else {
           console.log(err)
