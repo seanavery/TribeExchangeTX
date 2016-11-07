@@ -2,14 +2,6 @@ const fs = require('fs')
 const testFolder = './contractsTX'
 const solc = require('solc')
 
-
-// fs.readdir(contractFolder, (err, files) => {
-//   console.log(files);
-//   files.forEach(file => {
-//     console.log(file)
-//   })
-// })
-
 fs.readdir(testFolder, (err, files) => {
   if(!err) {
     files.forEach(file => {
@@ -19,7 +11,11 @@ fs.readdir(testFolder, (err, files) => {
         if(!err) {
           // console.log(data)
           var output = solc.compile(data, 1)
-          console.log(output.contracts)
+          for (var contractName in output.contracts) {
+            // code and ABI that are needed by web3
+            console.log(contractName + ': ' + output.contracts[contractName].bytecode);
+            console.log(contractName + '; ' + JSON.parse(output.contracts[contractName].interface));
+          }
         } else {
           console.log(err)
         }
